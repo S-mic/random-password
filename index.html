@@ -48,6 +48,7 @@
             border: 0;
             outline: 0;
             font-size: 24px;
+            width: 80%;
         }
         .container button img {
             width: 28px;
@@ -73,9 +74,8 @@
     <div class="container">
         <h1>Generate a <br><span>Random Password</span></h1>
         <div class="display">
-            <input type="text" id="password" placeholder="Password">
-            <img src="images/copy.png" onclick="copyPassword" >
-            
+            <input type="text" id="password" placeholder="Password" readonly>
+            <img src="images/copy.png" alt="Copy" onclick="copyPassword()">
         </div>
         <button onclick="createPassword()">
           <img src="images/generate.png" alt="">Generate Password
@@ -89,10 +89,6 @@
         const lowerCase = "abcdefghijklmnopqrstuvwxyz";
         const number = "0123456789";
         const symbol = "~!@#$%^&*()_+}{}[]/<>?.,:;'\\|";
- password: function copyPassword() {
-  passwordBox.select();
-  navigator.clipboard.writeText(passwordBox.value);
-}
 
         const allChars = upperCase + lowerCase + number + symbol;
 
@@ -108,6 +104,12 @@
             }
 
             passwordBox.value = password;
+        }
+
+        function copyPassword() {
+            passwordBox.select();
+            navigator.clipboard.writeText(passwordBox.value);
+            alert("Password copied to clipboard");
         }
     </script>
 </body>
