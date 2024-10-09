@@ -74,7 +74,7 @@
         <h1>Generate a <br><span>Random Password</span></h1>
         <div class="display">
             <input type="text" id="password" placeholder="Password">
-            <img src="/images/copy.png" >
+            <img src="/images/copy.png" onclick="copyPassword" >
         </div>
         <button onclick="createPassword()">
             <img src="/images/generate.png">Generate Password
@@ -88,6 +88,10 @@
         const lowerCase = "abcdefghijklmnopqrstuvwxyz";
         const number = "0123456789";
         const symbol = "~!@#$%^&*()_+}{}[]/<>?.,:;'\\|";
+ password: function copyPassword() {
+  passwordBox.select();
+  navigator.clipboard.writeText(passwordBox.value);
+}
 
         const allChars = upperCase + lowerCase + number + symbol;
 
